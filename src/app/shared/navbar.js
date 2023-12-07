@@ -82,8 +82,8 @@ export const Navbar = () => {
               className="bg-blue-primary w-[150px] py-4 rounded"
               onClick={toggle}
             >
-              <span className="font-medium text-[15px] text-[#fff]">
-                Book a demo
+              <span className="font-semibold text-[15px] text-[#fff]">
+                Book Demo
               </span>
             </button>
           </div>
@@ -144,8 +144,8 @@ export const Navbar = () => {
                   className="bg-blue-primary  py-3 rounded block w-full"
                   tabIndex="0"
                 >
-                  <span className="font-medium text-[15px] text-[#fff]">
-                    Book a demo
+                  <span className="font-semibold text-[15px] text-[#fff]">
+                    Book Demo
                   </span>
                 </button>
               </li>

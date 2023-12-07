@@ -24,16 +24,16 @@ export const ContactUs = () => {
           className="bg-blue-primary sm:w-[150px] w-full h-[56px] rounded"
           onClick={toggle}
         >
-          <span className="font-medium text-[15px] text-[#fff] leading-6">
-            Contact Us
+          <span className="font-semibold text-[15px] text-[#fff] leading-6">
+            Contact 
           </span>
         </button>
         <button
           className="bg-orange-primary sm:w-[150px] w-full h-[56px] rounded"
           onClick={toggle}
         >
-          <span className="font-medium text-[15px] text-[#fff] leading-6">
-            Book a demo
+          <span className="font-semibold text-[15px] text-[#fff] leading-6">
+            Book Demo
           </span>
         </button>
       </div>

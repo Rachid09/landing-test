@@ -54,8 +54,8 @@ export const WhySekops = () => {
         <h2 className="base:text-[50px] text-[33px] font-medium leading-[48px] capitalize mb-8 text-black-primary">
           Why Choose SekOps?
         </h2>
-        <ul className="flex flex-col">
-          <li className="mb-3">
+        <ul className="flex flex-col max-w-[600px]">
+          <li className="mb-5">
             <h4 className="text-black-primary  font-semibold capitalize leading-7 flex items-center sm:text-[18px] text-base">
               <Image
                 src="/assets/icons/star.svg"
@@ -66,12 +66,12 @@ export const WhySekops = () => {
               ></Image>
               Instant Value
             </h4>
-            <p className="text-gray-primary capitalize leading-7">
+            <p className="text-gray-primary leading-7">
               With minimal setup time, immediately witness the high return of
               investment.
             </p>
           </li>
-          <li className="mb-3">
+          <li className="mb-5">
             <h4 className="text-black-primary  font-semibold capitalize leading-7 flex items-center sm:text-[18px] text-base">
               <Image
                 src="/assets/icons/settings.svg"
@@ -82,12 +82,12 @@ export const WhySekops = () => {
               ></Image>
               Ease of integration
             </h4>
-            <p className="text-gray-primary capitalize leading-7">
+            <p className="text-gray-primary leading-7">
               SekOps seamlessly integrates with your projects, without code
               changes or workflow disruptions.
             </p>
           </li>
-          <li className="mb-3 ">
+          <li className="mb-5 ">
             <h4 className="text-black-primary  font-semibold capitalize leading-7 flex items-center sm:text-[18px] text-base">
               <Image
                 src="/assets/icons/union.svg"
@@ -98,12 +98,12 @@ export const WhySekops = () => {
               ></Image>
               Pull based security scanning
             </h4>
-            <p className="text-gray-primary capitalize leading-7">
+            <p className="text-gray-primary leading-7">
               Detect and address vulnerabilities by proactively scanning
               projects, ensuring you're always a step ahead in security.
             </p>
           </li>
-          <li className="mb-3">
+          <li className="mb-5">
             <h4 className="text-black-primary sm:text-[18px] text-base font-semibold capitalize leading-7 flex items-center">
               <Image
                 src="/assets/icons/heart.svg"
@@ -114,9 +114,9 @@ export const WhySekops = () => {
               ></Image>
               Built for Everyone & Cost-Effective
             </h4>
-            <p className="text-gray-primary capitalize leading-7">
+            <p className="text-gray-primary leading-7">
               From startups to enterprises, our platform is designed to be
-              affordable and accessible for businesses of every size. Enjoy your
+              affordable and accessible for businesses of every size. Enjoy the
               high ROI with SekOps!
             </p>
           </li>

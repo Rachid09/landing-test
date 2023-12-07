@@ -25,7 +25,7 @@ export const Features = () => {
           <h3 className="text-black-primary text-[32px] mb-[14px] leading-10 font-normal">
             Static scan
           </h3>
-          <span className="text-black-primary text-base font-light leading-6 text-center max-w-[300px]">
+          <span className="text-gray-primary text-base leading-6 text-center max-w-[300px]">
             Analyze source code for security flaws and leaked secrets
           </span>
         </li>
@@ -40,7 +40,7 @@ export const Features = () => {
           <h3 className="text-black-primary text-[32px] leading-10 mb-[14px] font-normal">
             Supply Chain Scan
           </h3>
-          <span className="text-black-primary text-base font-light leading-6 text-center max-w-[300px]">
+          <span className="text-gray-primary text-base leading-6 text-center max-w-[300px]">
             Examine software dependencies for known vulnerabilities
           </span>
         </li>
@@ -55,7 +55,7 @@ export const Features = () => {
           <h3 className="text-black-primary text-[32px] mb-[14px] leading-10 font-normal">
             Infrastructure Scan
           </h3>
-          <span className="text-black-primary text-base font-light leading-6 text-center max-w-[300px]">
+          <span className="text-gray-primary text-base leading-6 text-center max-w-[300px]">
             Assess container and Infrastructure as Code security
           </span>
         </li>
