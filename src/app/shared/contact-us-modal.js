@@ -91,6 +91,8 @@ export const ContactUsModal = ({ isShowing, hide }) => {
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <form
                 netlify
+                data-netlify="true"
+                name="contact"
                 id="contact-us"
                 className="py-5 px-4 lg:p-7 bg-white rounded border border-gray-secondary xl:min-w-[600px] 2xl:min-w-[700px] w-full lg:flex-1"
               >
