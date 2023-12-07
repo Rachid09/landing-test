@@ -4,62 +4,34 @@ import { useState } from "react";
 // import { toast } from "react-toastify";
 
 export const ContactUsModal = ({ isShowing, hide }) => {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-  const [isLoadingForm, setLoadingForm] = useState(false);
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [message, setMessage] = useState("");
+  // const [submitted, setSubmitted] = useState(false);
+  // const [isLoadingForm, setLoadingForm] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoadingForm(true);
-    let data = {
-      name,
-      email,
-      message,
-    };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setLoadingForm(true);
+  //   let data = {
+  //     name,
+  //     email,
+  //     message,
+  //   };
 
-    e.preventDefault();
+  //   e.preventDefault();
 
-    const myForm = e.target;
-    const formData = new FormData(myForm);
+  //   const myForm = e.target;
+  //   const formData = new FormData(myForm);
 
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => alert("Thank you for your submission"))
-      .catch((error) => alert(error));
-
-    // fetch("/api/contact", {
-    //   method: "POST",
-    //   headers: {
-    //     Accept: "application/json, text/plain, */*",
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(data),
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     if (data.statusCode === 200) {
-    //       toast.success("Your message has been submitted");
-    //       setSubmitted(true);
-    //       setLoadingForm(false);
-    //       setName("");
-    //       setEmail("");
-    //       setMessage("");
-    //       hide();
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     toast.error("Something went wrong please try again later");
-    //     setLoadingForm(false);
-    //     setName("");
-    //     setEmail("");
-    //     setMessage("");
-    //   });
-  };
+  //   fetch("/", {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  //     body: new URLSearchParams(formData).toString(),
+  //   })
+  //     .then(() => alert("Thank you for your submission"))
+  //     .catch((error) => alert(error));
+  // };
 
   return isShowing
     ? ReactDOM.createPortal(
@@ -104,6 +76,8 @@ export const ContactUsModal = ({ isShowing, hide }) => {
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               {/* action="/" */}
               <form
+                action="/success"
+                data-netlify-honeypot="bot-field"
                 method="post"
                 netlify
                 data-netlify="true"
@@ -111,6 +85,12 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                 id="contact-us"
                 className="py-5 px-4 lg:p-7 bg-white rounded border border-gray-secondary xl:min-w-[600px] 2xl:min-w-[700px] w-full lg:flex-1"
               >
+                <p class="hidden">
+                  <label>
+                    Don’t fill this out if you’re human:{" "}
+                    <input name="bot-field" />
+                  </label>
+                </p>
                 <input type="hidden" name="form-name" value="contact" />
 
                 <div className="w-full mb-4">
@@ -126,10 +106,10 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                     name="full_name"
                     className="w-full p-4 text-base border rounded border-gray-third bg-white focus:outline-none text-black-primary"
                     placeholder="Full name"
-                    onChange={(e) => {
-                      setName(e.target.value);
-                    }}
                   />
+                  {/* onChange={(e) => {
+                      setName(e.target.value);
+                    }} */}
                 </div>
                 <div className="w-full mb-4">
                   <label
@@ -144,10 +124,10 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                     name="email"
                     className="w-full p-4 text-base border rounded border-gray-third bg-white focus:outline-none text-black-primary"
                     placeholder="Email"
-                    onChange={(e) => {
-                      setEmail(e.target.value);
-                    }}
                   />
+                  {/* onChange={(e) => {
+                      setEmail(e.target.value);
+                    }} */}
                 </div>
                 <div className="w-full mb-4">
                   <label
@@ -161,33 +141,32 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                     name="message"
                     className="w-full p-4 text-base border rounded border-gray-third bg-white text-black-primary focus:outline-none"
                     placeholder="Message"
-                    onChange={(e) => {
-                      setMessage(e.target.value);
-                    }}
                     rows="6"
                   ></textarea>
+                  {/* onChange={(e) => {
+                      setMessage(e.target.value);
+                    }} */}
                 </div>
                 <div className="flex justify-end w-full">
+                  {/* disabled={
+                    name == "" ||
+                    email == "" ||
+                    message == "" ||
+                    isLoadingForm
+                  } */}
                   <button
-                    disabled={
-                      name == "" ||
-                      email == "" ||
-                      message == "" ||
-                      isLoadingForm
-                    }
                     type="submit"
                     className="items-center min-h-[40px] flex justify-center bg-blue-primary w-32 py-2 rounded cursor-pointer text-center"
                   >
-                    <div
+                    {/* <div
                       className={`dot-flashing ${
                         isLoadingForm ? "block" : "hidden"
                       }`}
-                    ></div>
-                    <span
-                      className={`font-medium  text-white ${
+                    ></div> */}
+                    {/* ${
                         isLoadingForm ? "hidden" : "inline"
-                      }`}
-                    >
+                      } */}
+                    <span className={`font-medium  text-white inline`}>
                       Submit
                     </span>
                   </button>
