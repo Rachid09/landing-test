@@ -158,9 +158,7 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                       message == "" ||
                       isLoadingForm
                     }
-                    // onClick={(e) => {
-                    //   handleSubmit(e);
-                    // }}
+                    type="submit"
                     className="items-center min-h-[40px] flex justify-center bg-blue-primary w-32 py-2 rounded cursor-pointer text-center"
                   >
                     <div
