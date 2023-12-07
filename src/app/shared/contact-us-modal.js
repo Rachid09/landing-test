@@ -10,43 +10,56 @@ export const ContactUsModal = ({ isShowing, hide }) => {
   const [submitted, setSubmitted] = useState(false);
   const [isLoadingForm, setLoadingForm] = useState(false);
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setLoadingForm(true);
-  //   let data = {
-  //     name,
-  //     email,
-  //     message,
-  //   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoadingForm(true);
+    let data = {
+      name,
+      email,
+      message,
+    };
 
-  //   fetch("/api/contact", {
-  //     method: "POST",
-  //     headers: {
-  //       Accept: "application/json, text/plain, */*",
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(data),
-  //   })
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       if (data.statusCode === 200) {
-  //         toast.success("Your message has been submitted");
-  //         setSubmitted(true);
-  //         setLoadingForm(false);
-  //         setName("");
-  //         setEmail("");
-  //         setMessage("");
-  //         hide();
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       toast.error("Something went wrong please try again later");
-  //       setLoadingForm(false);
-  //       setName("");
-  //       setEmail("");
-  //       setMessage("");
-  //     });
-  // };
+    e.preventDefault();
+
+    const myForm = e.target;
+    const formData = new FormData(myForm);
+
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => alert("Thank you for your submission"))
+      .catch((error) => alert(error));
+
+    // fetch("/api/contact", {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json, text/plain, */*",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     if (data.statusCode === 200) {
+    //       toast.success("Your message has been submitted");
+    //       setSubmitted(true);
+    //       setLoadingForm(false);
+    //       setName("");
+    //       setEmail("");
+    //       setMessage("");
+    //       hide();
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     toast.error("Something went wrong please try again later");
+    //     setLoadingForm(false);
+    //     setName("");
+    //     setEmail("");
+    //     setMessage("");
+    //   });
+  };
 
   return isShowing
     ? ReactDOM.createPortal(
@@ -90,12 +103,15 @@ export const ContactUsModal = ({ isShowing, hide }) => {
             {/* <!-- Modal content --> */}
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <form
+                onSubmit={handleSubmit}
                 netlify
                 data-netlify="true"
                 name="contact"
                 id="contact-us"
                 className="py-5 px-4 lg:p-7 bg-white rounded border border-gray-secondary xl:min-w-[600px] 2xl:min-w-[700px] w-full lg:flex-1"
               >
+                <input type="hidden" name="form-name" value="contact" />
+
                 <div className="w-full mb-4">
                   <label
                     htmlFor="full_name"

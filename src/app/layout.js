@@ -9,15 +9,15 @@ export async function generateMetadata() {
   const domainName = process.env.NEXT_PUBLIC_DOMAIN;
 
   return {
-    title: "Sekops",
+    title: "SekOps",
     description:
       "Empowering businesses of all sizes with affordable, easy-to-integrate, and high-impact Application Security solution",
     openGraph: {
-      title: "Sekops",
+      title: "SekOps",
       description:
         "Empowering businesses of all sizes with affordable, easy-to-integrate, and high-impact Application Security solution",
       url: process.env.NEXT_PUBLIC_DOMAIN,
-      siteName: "SeKops",
+      siteName: "SekOps",
       images: [
         {
           url: process.env.NEXT_PUBLIC_DOMAIN + "/images/banner.png",
@@ -25,7 +25,7 @@ export async function generateMetadata() {
           height: 1416,
         },
         {
-          url: process.env.NEXT_PUBLIC_DOMAIN + "/assets/logo.svg",
+          url: process.env.NEXT_PUBLIC_DOMAIN + "/images/banner.svg",
           width: 146,
           height: 36,
           alt: "sekops-logo",
