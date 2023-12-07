@@ -102,8 +102,9 @@ export const ContactUsModal = ({ isShowing, hide }) => {
 
             {/* <!-- Modal content --> */}
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+              {/* action="/" */}
               <form
-                onSubmit={handleSubmit}
+                method="post"
                 netlify
                 data-netlify="true"
                 name="contact"
