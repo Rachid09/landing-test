@@ -1,6 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import Image from "next/image";
 import useModal from "../hooks/useModal";
 import { ContactUsModal } from "../shared/contact-us-modal";
 

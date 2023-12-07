@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { toast } from "react-toastify";
-import Image from "next/image";
+// import { toast } from "react-toastify";
 
 export const ContactUsModal = ({ isShowing, hide }) => {
   const [name, setName] = useState("");
@@ -11,43 +10,43 @@ export const ContactUsModal = ({ isShowing, hide }) => {
   const [submitted, setSubmitted] = useState(false);
   const [isLoadingForm, setLoadingForm] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setLoadingForm(true);
-    let data = {
-      name,
-      email,
-      message,
-    };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   setLoadingForm(true);
+  //   let data = {
+  //     name,
+  //     email,
+  //     message,
+  //   };
 
-    fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        if (data.statusCode === 200) {
-          toast.success("Your message has been submitted");
-          setSubmitted(true);
-          setLoadingForm(false);
-          setName("");
-          setEmail("");
-          setMessage("");
-          hide();
-        }
-      })
-      .catch((error) => {
-        toast.error("Something went wrong please try again later");
-        setLoadingForm(false);
-        setName("");
-        setEmail("");
-        setMessage("");
-      });
-  };
+  //   fetch("/api/contact", {
+  //     method: "POST",
+  //     headers: {
+  //       Accept: "application/json, text/plain, */*",
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(data),
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       if (data.statusCode === 200) {
+  //         toast.success("Your message has been submitted");
+  //         setSubmitted(true);
+  //         setLoadingForm(false);
+  //         setName("");
+  //         setEmail("");
+  //         setMessage("");
+  //         hide();
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       toast.error("Something went wrong please try again later");
+  //       setLoadingForm(false);
+  //       setName("");
+  //       setEmail("");
+  //       setMessage("");
+  //     });
+  // };
 
   return isShowing
     ? ReactDOM.createPortal(
@@ -91,6 +90,7 @@ export const ContactUsModal = ({ isShowing, hide }) => {
             {/* <!-- Modal content --> */}
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <form
+                netlify
                 id="contact-us"
                 className="py-5 px-4 lg:p-7 bg-white rounded border border-gray-secondary xl:min-w-[600px] 2xl:min-w-[700px] w-full lg:flex-1"
               >
@@ -156,9 +156,9 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                       message == "" ||
                       isLoadingForm
                     }
-                    onClick={(e) => {
-                      handleSubmit(e);
-                    }}
+                    // onClick={(e) => {
+                    //   handleSubmit(e);
+                    // }}
                     className="items-center min-h-[40px] flex justify-center bg-blue-primary w-32 py-2 rounded cursor-pointer text-center"
                   >
                     <div
