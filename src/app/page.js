@@ -177,6 +177,72 @@ export default function Home() {
       <Features></Features>
       <TechSupported></TechSupported>
       <ContactUs></ContactUs>
+      <div className="hidden">
+        <form
+          action="/success/"
+          data-netlify-honeypot="bot-field"
+          method="post"
+          netlify
+          data-netlify="true"
+          name="contact"
+          id="contact-us"
+          className="py-5 px-4 lg:p-7 bg-white rounded border border-gray-secondary xl:min-w-[600px] 2xl:min-w-[700px] w-full lg:flex-1"
+        >
+          <p class="hidden">
+            <label>
+              Don’t fill this out if you’re human: <input name="bot-field" />
+            </label>
+          </p>
+          <input type="hidden" name="form-name" value="contact" />
+
+          <div className="w-full mb-4">
+            <label className="inline-block mb-2 text-base leading-4 text-black-primary font-inter">
+              Full name
+            </label>
+            <input
+              required
+              type="text"
+              name="full_name"
+              className="w-full p-4 text-base border rounded border-gray-third bg-white focus:outline-none text-black-primary"
+              placeholder="Full name"
+            />
+          </div>
+          <div className="w-full mb-4">
+            <label className="inline-block mb-2 text-base leading-4 text-black-primary font-inter focus:outline-none">
+              Email
+            </label>
+            <input
+              required
+              type="email"
+              name="email"
+              className="w-full p-4 text-base border rounded border-gray-third bg-white focus:outline-none text-black-primary"
+              placeholder="Email"
+            />
+          </div>
+          <div className="w-full mb-4">
+            <label className="inline-block mb-2 text-base leading-4 text-black-primary font-inter">
+              Message
+            </label>
+            <textarea
+              required
+              name="message"
+              className="w-full p-4 text-base border rounded border-gray-third bg-white text-black-primary focus:outline-none"
+              placeholder="Message"
+              rows="6"
+            ></textarea>
+          </div>
+          <div className="flex justify-end w-full">
+            <button
+              type="submit"
+              className="items-center min-h-[40px] flex justify-center bg-blue-primary w-32 py-2 rounded cursor-pointer text-center"
+            >
+              <div className={`dot-flashing`}></div>
+
+              <span className={`font-medium  text-white`}>Submit</span>
+            </button>
+          </div>
+        </form>
+      </div>
     </main>
   );
 }
