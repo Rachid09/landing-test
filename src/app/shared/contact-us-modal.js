@@ -4,34 +4,35 @@ import { useState } from "react";
 // import { toast } from "react-toastify";
 
 export const ContactUsModal = ({ isShowing, hide }) => {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [message, setMessage] = useState("");
-  // const [submitted, setSubmitted] = useState(false);
-  // const [isLoadingForm, setLoadingForm] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [isLoadingForm, setLoadingForm] = useState(false);
+  const router = useRouter();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   setLoadingForm(true);
-  //   let data = {
-  //     name,
-  //     email,
-  //     message,
-  //   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setLoadingForm(true);
+    // let data = {
+    //   name,
+    //   email,
+    //   message,
+    // };
 
-  //   e.preventDefault();
+    e.preventDefault();
 
-  //   const myForm = e.target;
-  //   const formData = new FormData(myForm);
+    const myForm = e.target;
+    const formData = new FormData(myForm);
 
-  //   fetch("/", {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/x-www-form-urlencoded" },
-  //     body: new URLSearchParams(formData).toString(),
-  //   })
-  //     .then(() => alert("Thank you for your submission"))
-  //     .catch((error) => alert(error));
-  // };
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => router.push("/success"))
+      .catch((error) => alert(error));
+  };
 
   return isShowing
     ? ReactDOM.createPortal(
@@ -76,7 +77,8 @@ export const ContactUsModal = ({ isShowing, hide }) => {
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               {/* action="/" */}
               <form
-                action="/success"
+                onSubmit={handleSubmit}
+                action="/success/"
                 data-netlify-honeypot="bot-field"
                 method="post"
                 netlify
@@ -106,10 +108,10 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                     name="full_name"
                     className="w-full p-4 text-base border rounded border-gray-third bg-white focus:outline-none text-black-primary"
                     placeholder="Full name"
-                  />
-                  {/* onChange={(e) => {
+                    onChange={(e) => {
                       setName(e.target.value);
-                    }} */}
+                    }}
+                  />
                 </div>
                 <div className="w-full mb-4">
                   <label
@@ -124,10 +126,10 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                     name="email"
                     className="w-full p-4 text-base border rounded border-gray-third bg-white focus:outline-none text-black-primary"
                     placeholder="Email"
-                  />
-                  {/* onChange={(e) => {
+                    onChange={(e) => {
                       setEmail(e.target.value);
-                    }} */}
+                    }}
+                  />
                 </div>
                 <div className="w-full mb-4">
                   <label
@@ -142,31 +144,33 @@ export const ContactUsModal = ({ isShowing, hide }) => {
                     className="w-full p-4 text-base border rounded border-gray-third bg-white text-black-primary focus:outline-none"
                     placeholder="Message"
                     rows="6"
-                  ></textarea>
-                  {/* onChange={(e) => {
+                    onChange={(e) => {
                       setMessage(e.target.value);
-                    }} */}
+                    }}
+                  ></textarea>
                 </div>
                 <div className="flex justify-end w-full">
-                  {/* disabled={
-                    name == "" ||
-                    email == "" ||
-                    message == "" ||
-                    isLoadingForm
-                  } */}
                   <button
+                    disabled={
+                      name == "" ||
+                      email == "" ||
+                      message == "" ||
+                      isLoadingForm
+                    }
                     type="submit"
                     className="items-center min-h-[40px] flex justify-center bg-blue-primary w-32 py-2 rounded cursor-pointer text-center"
                   >
-                    {/* <div
+                    <div
                       className={`dot-flashing ${
                         isLoadingForm ? "block" : "hidden"
                       }`}
-                    ></div> */}
-                    {/* ${
+                    ></div>
+
+                    <span
+                      className={`font-medium  text-white  ${
                         isLoadingForm ? "hidden" : "inline"
-                      } */}
-                    <span className={`font-medium  text-white inline`}>
+                      }`}
+                    >
                       Submit
                     </span>
                   </button>
