@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 // import { toast } from "react-toastify";
 
 export const ContactUsModal = ({ isShowing, hide }) => {
@@ -14,14 +15,6 @@ export const ContactUsModal = ({ isShowing, hide }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoadingForm(true);
-    // let data = {
-    //   name,
-    //   email,
-    //   message,
-    // };
-
-    e.preventDefault();
-
     const myForm = e.target;
     const formData = new FormData(myForm);
 
