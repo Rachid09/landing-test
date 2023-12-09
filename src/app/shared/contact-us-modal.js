@@ -1,8 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
-// import { toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 export const ContactUsModal = ({ isShowing, hide }) => {
   const [name, setName] = useState("");
@@ -10,7 +9,6 @@ export const ContactUsModal = ({ isShowing, hide }) => {
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [isLoadingForm, setLoadingForm] = useState(false);
-  const router = useRouter();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -23,8 +21,23 @@ export const ContactUsModal = ({ isShowing, hide }) => {
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: new URLSearchParams(formData).toString(),
     })
-      .then(() => router.push("/success"))
-      .catch((error) => alert(error));
+      .then(() => {
+        toast.success("Your message has been submitted");
+        setSubmitted(true);
+        setLoadingForm(false);
+        setName("");
+        setEmail("");
+        setMessage("");
+        hide();
+      })
+      .catch((error) => {
+        toast.error("Something went wrong please try again later");
+        setLoadingForm(false);
+        setName("");
+        setEmail("");
+        setMessage("");
+        hide();
+      });
   };
 
   return isShowing
